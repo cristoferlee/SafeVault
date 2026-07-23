@@ -1,10 +1,8 @@
 # SafeVault
 
-SafeVault is an ASP.NET Core web application created to demonstrate secure coding, authentication, authorization, and security testing practices with assistance from Microsoft Copilot.
+SafeVault is an ASP.NET Core web application demonstrating secure coding, authentication, authorization, and security testing with assistance from Microsoft Copilot.
 
-## Project objectives
-
-The project was developed through three security activities:
+## Project activities
 
 1. Secure input handling and SQL injection prevention.
 2. Authentication and role-based authorization.
@@ -32,49 +30,57 @@ Database operations use parameterized queries with `SqlParameter`. User-provided
 
 ### Authorization
 
-SafeVault implements Role-Based Access Control with the following roles:
+SafeVault implements Role-Based Access Control with two roles:
 
 - `User`
 - `Admin`
 
-The `AdminOnly` policy restricts access to administrative endpoints.
+The `AdminOnly` policy restricts administrative endpoints to users with the `Admin` role.
 
 ### XSS prevention
 
-User-generated values are validated and HTML-encoded before being rendered in a response.
+User-generated values are validated and HTML-encoded before being rendered.
 
 ## Testing
 
-The project includes NUnit unit and integration tests covering:
+The NUnit test suite covers:
 
 - Valid and invalid input.
 - SQL injection payloads.
 - XSS payloads.
 - Valid and invalid login attempts.
 - Unknown users.
-- Admin and regular user authorization.
+- Admin and regular-user authorization.
 - Malicious requests sent through real HTTP endpoints.
 
-Run the tests with:
+Run the tests:
 
 ```powershell
 dotnet test
+```
 
 Current result:
 
+```text
 Total: 16
 Passed: 16
 Failed: 0
-Technologies
-.NET 10
-ASP.NET Core Minimal API
-SQL Server
-Microsoft.Data.SqlClient
-BCrypt.Net-Next
-NUnit
-Microsoft.AspNetCore.Mvc.Testing
-Microsoft Copilot
-Project structure
+```
+
+## Technologies
+
+- .NET 10
+- ASP.NET Core Minimal API
+- SQL Server
+- Microsoft.Data.SqlClient
+- BCrypt.Net-Next
+- NUnit
+- Microsoft.AspNetCore.Mvc.Testing
+- Microsoft Copilot
+
+## Project structure
+
+```text
 SafeVault
 ├── SafeVault.Web
 │   ├── Data
@@ -87,41 +93,38 @@ SafeVault
 ├── SafeVault.Tests
 ├── SECURITY_SUMMARY.md
 └── SafeVault.slnx
-Run locally
+```
 
-Restore and build the solution:
+## Run locally
 
+Restore and build:
+
+```powershell
 dotnet restore
 dotnet build
+```
 
-Execute SafeVault.Web/database.sql in SQL Server to create the database and Users table.
+Execute `SafeVault.Web/database.sql` in SQL Server to create the database and `Users` table.
 
 Run the application:
 
+```powershell
 dotnet run --project .\SafeVault.Web
+```
 
-Use the URL displayed in the terminal to open the application.
-
-Microsoft Copilot usage
+## Microsoft Copilot usage
 
 Microsoft Copilot assisted with:
 
-Generating secure input-validation suggestions.
-Creating parameterized database queries.
-Implementing authentication and RBAC.
-Reviewing the codebase for SQL injection and XSS risks.
-Generating security test scenarios.
-Identifying missing validation and insufficient endpoint-level tests.
+- Input-validation suggestions.
+- Parameterized database queries.
+- Authentication and RBAC implementation.
+- SQL injection and XSS review.
+- Security test scenarios.
+- Identification of missing validation and insufficient endpoint-level testing.
 
-All generated suggestions were reviewed, corrected when necessary, and verified through automated tests.
+All suggestions were reviewed, corrected when necessary, and verified through automated tests.
 
-Security review
+## Security review
 
-See SECURITY_SUMMARY.md for the vulnerabilities identified, corrections applied, and final testing results.
-
-
-Guarda y ejecuta:
-
-```powershell
-git add .
-git commit -m "Add documentation and remove build artifacts"
+See [SECURITY_SUMMARY.md](SECURITY_SUMMARY.md) for the vulnerabilities identified, corrections applied, and final testing results.
