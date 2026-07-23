@@ -62,3 +62,4 @@ C:\Users\crist\SafeVault\SafeVault.Web\obj\Debug\net10.0\refint\SafeVault.Web.dl
 C:\Users\crist\SafeVault\SafeVault.Web\obj\Debug\net10.0\SafeVault.Web.pdb
 C:\Users\crist\SafeVault\SafeVault.Web\obj\Debug\net10.0\SafeVault.Web.genruntimeconfig.cache
 C:\Users\crist\SafeVault\SafeVault.Web\obj\Debug\net10.0\ref\SafeVault.Web.dll
+C:\Users\crist\SafeVault\SafeVault.Web\bin\Debug\net10.0\BCrypt-Net-Next.dll
