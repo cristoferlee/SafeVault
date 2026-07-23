@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SafeVault</title>
+</head>
+
+<body>
+    <main>
+        <h1>SafeVault Registration</h1>
+
+        <form action="/submit" method="post">
+            <div>
+                <label for="username">Username:</label>
+
+                <input type="text" id="username" name="username" required minlength="3" maxlength="50"
+                    pattern="[a-zA-Z0-9_-]{3,50}" title="Use 3 to 50 letters, numbers, underscores, or hyphens.">
+            </div>
+
+            <div>
+                <label for="email">Email:</label>
+
+                <input type="email" id="email" name="email" required maxlength="100">
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+</body>
+
+</html>
