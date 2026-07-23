@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SafeVault.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+519a1279f9ccdcaf87aa76d04c91e659ef5d48ce")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f8c2b2c3843666006f2289819e8e6c26087bb07a")]
 [assembly: System.Reflection.AssemblyProductAttribute("SafeVault.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SafeVault.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

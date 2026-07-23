@@ -10,16 +10,32 @@ using AuthenticationService =
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<AuthenticationService>();
 
-builder.Services.AddScoped<SafeVault.Web.Data.UserRepository>();
+builder.Services
+    .AddAuthentication(
+        CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/login";
+        options.AccessDeniedPath = "/access-denied";
+    });
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy(
+        "AdminOnly",
+        policy => policy.RequireRole("Admin"));
+});
 
 var app = builder.Build();
 
 app.UseHttpsRedirection();
 app.UseDefaultFiles();
 app.UseStaticFiles();
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapPost("/submit", async Task<IResult> (HttpRequest request) =>
 {
